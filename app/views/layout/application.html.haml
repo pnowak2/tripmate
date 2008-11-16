@@ -5,5 +5,9 @@
       Fresh Merb App
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }/
     %link{ :href => "/stylesheets/master.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
+    = js_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAq_FfbMUqcubyUCrOB_cLbBT-ZTKVLgdLz0ZRRJYP7ttYbtpFeBSJiSQcTqSBizyUOs7P3WhB58nAJA"
+    = js_include_tag :jquery
+    = catch_content :scripts
+
   %body
     = catch_content :for_layout
