@@ -9,15 +9,17 @@ $(function(){
     var geocoder = new GClientGeocoder();
     var center = new GLatLng(50.170693,18.904327);
     var lastMarker = null;
+    var markersCount = 0;
     
     map.openInfoWindow(center ,"Witaj w tripmate<br/>Kliknij aby wybrać lokalizację");
     
     map.setCenter(center, 14);
 
     GEvent.addListener(map, "click", function(overlay, latlng){
-      if(latlng != null){
+      if(latlng != null /*&& markersCount < 2 */){
         var marker = createMarker(latlng);
         map.addOverlay(marker);
+        markersCount++;
         geocoder.getLocations(latlng, showAddress);
        }
     });
